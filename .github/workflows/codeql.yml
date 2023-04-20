@@ -18,12 +18,12 @@ on:
     # The branches below must be a subset of the branches above
     branches: [ "main" ]
   schedule:
-    - cron: '31 20 * * 3'
+    - cron: '0 17 * * *'
 
 jobs:
   analyze:
     name: Analyze
-    runs-on: ${{ (matrix.language == 'java' && 'macos-latest') || 'ubuntu-latest' }}
+    runs-on: ${{ matrix.language == 'java' || 'ubuntu-latest' }}
     permissions:
       actions: read
       contents: read
